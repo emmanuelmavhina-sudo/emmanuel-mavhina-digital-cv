@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - Seller Portal</title>
+    <link rel="stylesheet" href="Thirsti.css">
+    
+    
+    <style>
+        body {
+            
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+       
+        .form-container {
+            background-color: rgba(247, 5, 17, 0.9); /* Semi-transparent white */
+            padding: 20px 40px;
+            margin: 50px auto;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgb(248, 247, 247);
+        }
+
+       
+    </style>
+</head>
+<body> 
+
+    <div class="form-container" >
+	<img src="images/thirsti_bg.jpg">
+        <h1><b>Thirsti</b></h1>  
+        <h2>Add New Product</h2>
+        <p>Use the form below to list a new item on your store.</p>
+        
+        <form action="/api/products" method="POST">
+            
+            <div class="form-group">
+                <label for="product_name">Product Name:</label>
+                <input type="text" id="product_name" name="product_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sku">SKU (Stock Keeping Unit):</label>
+                <input type="text" id="sku" name="sku">
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (R):</label>
+                <input type="number" id="price" name="price" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity in Stock:</label>
+                
+                <input type="number" id="quantity" name="quantity" min="0" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">-- Select Category --</option>
+                    
+                    <option value="beverages">Beverages</option>
+                    <option value="snacks">Snacks</option>
+                    <option value="fresh_produce">Fresh Produce</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="home">Home Goods</option>
+                    <option value="tools">Tools</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Product Status:</label>
+                
+                <select id="status" name="status">
+                    <option value="active">Active (Visible)</option>
+                    <option value="draft">Draft (Hidden)</option>
+                    <option value="archived">Archived</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image_upload">Upload Image:</label>
+                <input type="file" id="image_upload" name="image_upload">
+            </div>
+
+            <div class="form-group">
+                <button type="submit">List Product</button>
+            </div>
+       
+        </form>
+    </div>
+ 
+</body>
+</html>
